@@ -13,5 +13,10 @@ public enum ExamTag
     SebiGradeA = 8,
     LicAao = 9,
     GeneralInsurance = 10,
-    IbpsRrb = 11
+    IbpsRrb = 11,
+    IbpsRrbPo = 12,
+    IbpsRrbClerk = 13,
+    CommercialBanks = 14,
+    RegulatoryBodies = 15,
+    InsuranceSpecial = 16
 }

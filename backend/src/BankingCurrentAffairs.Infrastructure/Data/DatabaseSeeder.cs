@@ -112,6 +112,17 @@ public static class DatabaseSeeder
                     DisplayOrder = 9,
                     DescriptionEn = "Financial Literacy Week, World Consumer Rights Day, RBI Foundation Day",
                     DescriptionHi = "वित्तीय साक्षरता सप्ताह, विश्व उपभोक्ता अधिकार दिवस, आरबीआई स्थापना दिवस"
+                },
+                new()
+                {
+                    Id = 10,
+                    NameEn = "RRB & Rural Financial Inclusion",
+                    NameHi = "आरआरबी और ग्रामीण वित्तीय समावेशन",
+                    Slug = "rrb-rural-finance",
+                    Icon = "landmark",
+                    DisplayOrder = 10,
+                    DescriptionEn = "Regional Rural Banks, NABARD, Priority Sector Lending (75% RRB quota), KCC, PACS Digitalization",
+                    DescriptionHi = "क्षेत्रीय ग्रामीण बैंक, नाबार्ड, प्राथमिकता प्राप्त क्षेत्र ऋण (75% आरआरबी कोटा), केसीसी, पैक्स डिजिटलीकरण"
                 }
             };
 
@@ -177,7 +188,8 @@ public static class DatabaseSeeder
                 StaticGkFactEn = "RBI Governor: Shaktikanta Das | Founded: 1 April 1935 (Hilton Young Commission) | Headquarters: Mumbai, Maharashtra.",
                 StaticGkFactHi = "आरबीआई गवर्नर: शक्तिकांत दास | स्थापना: 1 अप्रैल 1935 (हिल्टन यंग कमीशन) | मुख्यालय: मुंबई, महाराष्ट्र।",
                 Importance = ImportanceLevel.MustRead,
-                TargetExams = ExamTag.AllBanking,
+                TargetExams = ExamTag.RbiGradeB,
+                ExamTargetGroup = "Regulatory",
                 Keywords = "RBI, KFS, Key Fact Statement, APR, Retail Loans, MSME, Regulatory Compliance",
                 SourceName = "RBI Official Press Notification",
                 SourceUrl = "https://rbi.org.in",
@@ -213,7 +225,8 @@ public static class DatabaseSeeder
                 StaticGkFactEn = "World Bank President: Ajay Banga | Headquarters: Washington D.C., USA | Member Countries: 189 | Flagship Report: Global Economic Prospects.",
                 StaticGkFactHi = "विश्व बैंक अध्यक्ष: अजय बंगा | मुख्यालय: वाशिंगटन डी.सी., यूएसए | सदस्य देश: 189 | प्रमुख रिपोर्ट: वैश्विक आर्थिक संभावनाएं।",
                 Importance = ImportanceLevel.High,
-                TargetExams = ExamTag.AllBanking,
+                TargetExams = ExamTag.CommercialBanks,
+                ExamTargetGroup = "CommercialBanks",
                 Keywords = "World Bank, India Development Update, GDP Growth, Economy, FY25, CAD",
                 SourceName = "World Bank India Development Update",
                 SourceUrl = "https://worldbank.org",
@@ -250,6 +263,7 @@ public static class DatabaseSeeder
                 StaticGkFactHi = "एसबीआई अध्यक्ष: सी.एस. सेट्टी | स्थापना: 1 जुलाई 1955 (अखिल भारतीय ग्रामीण ऋण सर्वेक्षण समिति की सिफारिश) | मुख्यालय: मुंबई।",
                 Importance = ImportanceLevel.High,
                 TargetExams = ExamTag.SbiPo,
+                ExamTargetGroup = "CommercialBanks",
                 Keywords = "SBI, Green Bond, ESG, GIFT City, IFSCA, SOFR, Sustainable Finance",
                 SourceName = "SBI Press Release / Financial Express",
                 SourceUrl = "https://sbi.co.in",
@@ -285,7 +299,8 @@ public static class DatabaseSeeder
                 StaticGkFactEn = "Operated under Department of Financial Services (DFS), Ministry of Finance. Nodal Minister: Nirmala Sitharaman.",
                 StaticGkFactHi = "वित्तीय सेवाएं विभाग (डीएफएस), वित्त मंत्रालय के अधीन संचालित। नोडल मंत्री: निर्मला सीतारमण।",
                 Importance = ImportanceLevel.PreviousYearsPattern,
-                TargetExams = ExamTag.AllBanking,
+                TargetExams = ExamTag.CommercialBanks,
+                ExamTargetGroup = "CommercialBanks",
                 Keywords = "PMJDY, Jan Dhan Yojana, Financial Inclusion, RuPay Card, Overdraft, DFS",
                 SourceName = "PIB (Press Information Bureau) Delhi",
                 SourceUrl = "https://pib.gov.in",
@@ -322,6 +337,7 @@ public static class DatabaseSeeder
                 StaticGkFactHi = "FSIB मुख्यालय: मुंबई, महाराष्ट्र | मूल मंत्रालय: वित्त मंत्रालय।",
                 Importance = ImportanceLevel.High,
                 TargetExams = ExamTag.IbpsPo,
+                ExamTargetGroup = "CommercialBanks",
                 Keywords = "FSIB, Banks Board Bureau, Appointments, ACC, Public Sector Banks, PSB MD",
                 SourceName = "DoPT / Ministry of Finance Notification",
                 SourceUrl = "https://financialservices.gov.in",
@@ -329,11 +345,87 @@ public static class DatabaseSeeder
                 IsFeatured = false
             };
 
+            var item6 = new CurrentAffairItem
+            {
+                Id = Guid.NewGuid(),
+                DigestId = digestToday.Id,
+                CategoryId = 10, // RRB & Rural Financial Inclusion
+                TitleEn = "NABARD Announces ₹5,000 Crore Climate & Agri-Refinance Scheme for Regional Rural Banks",
+                TitleHi = "नाबार्ड ने क्षेत्रीय ग्रामीण बैंकों (आरआरबी) के लिए ₹5,000 करोड़ की जलवायु और कृषि-पुनर्वित्त योजना की घोषणा की",
+                SummaryEn = "NABARD rolled out a special concessional refinance window of ₹5,000 crore dedicated to Regional Rural Banks (RRBs) to accelerate agricultural credit disbursement under the Kisan Credit Card (KCC) scheme and solar pump installations.",
+                SummaryHi = "नाबार्ड ने किसान क्रेडिट कार्ड (KCC) योजना और सौर पंप स्थापना के तहत कृषि ऋण वितरण में तेजी लाने के लिए क्षेत्रीय ग्रामीण बैंकों (RRBs) को समर्पित ₹5,000 करोड़ की एक विशेष रियायती पुनर्वित्त सुविधा शुरू की।",
+                BulletPointsEnJson = JsonSerializer.Serialize(new[]
+                {
+                    "RRBs have a statutory Priority Sector Lending (PSL) target of 75% of ANBC, compared to 40% for commercial banks.",
+                    "The shareholding structure of RRBs is strictly distributed: Central Govt (50%), State Govt (15%), and Sponsor Bank (35%).",
+                    "The first RRB in India was Prathama Bank (sponsored by Syndicate Bank, established on 2nd October 1975 in Moradabad, UP).",
+                    "Refinance will be provided at a benchmark interest rate of 4.5% to ensure farm-level credit at net 4% p.a."
+                }),
+                BulletPointsHiJson = JsonSerializer.Serialize(new[]
+                {
+                    "आरआरबी के लिए वैधानिक प्राथमिकता प्राप्त क्षेत्र ऋण (PSL) लक्ष्य ANBC का 75% है (वाणिज्यिक बैंकों के 40% के मुकाबले)।",
+                    "आरआरबी की शेयरधारिता संरचना: केंद्र सरकार (50%), राज्य सरकार (15%), और प्रायोजक बैंक (35%)।",
+                    "भारत में पहला आरआरबी 'प्रथमा बैंक' (सिंडिकेट बैंक द्वारा प्रायोजित, 2 अक्टूबर 1975 को मुरादाबाद, यूपी में स्थापित) था।",
+                    "किसानों को शुद्ध 4% वार्षिक दर पर ऋण सुनिश्चित करने के लिए 4.5% की मानक ब्याज दर पर पुनर्वित्त प्रदान किया जाएगा।"
+                }),
+                BankingTakeawayEn = "Core RRB exam takeaway: Narasimham Working Group (1975) -> RRB Act 1976. 75% PSL target (54% for agriculture). Current operational RRBs count amalgamated to 43.",
+                BankingTakeawayHi = "आरआरबी परीक्षा मुख्य तथ्य: नरसिम्हम कार्य समूह (1975) -> आरआरबी अधिनियम 1976। 75% पीएसएल लक्ष्य (कृषि के लिए 54%)।",
+                StaticGkFactEn = "NABARD Headquarters: Mumbai | Chairman: Shaji K.V. | Formed: 12 July 1982 on B. Sivaraman Committee recommendations.",
+                StaticGkFactHi = "नाबार्ड मुख्यालय: मुंबई | अध्यक्ष: शाजी के.वी. | स्थापना: 12 जुलाई 1982 (बी. शिवरामन समिति)।",
+                Importance = ImportanceLevel.MustRead,
+                TargetExams = ExamTag.IbpsRrbPo,
+                ExamTargetGroup = "RRB_Agriculture",
+                Keywords = "NABARD, RRB, Rural Credit, KCC, Narasimham Committee, Prathama Bank, PSL 75%",
+                SourceName = "NABARD Press Release",
+                SourceUrl = "https://nabard.org",
+                DisplayOrder = 6,
+                IsFeatured = true
+            };
+
+            var item7 = new CurrentAffairItem
+            {
+                Id = Guid.NewGuid(),
+                DigestId = digestToday.Id,
+                CategoryId = 1, // Banking & Finance
+                TitleEn = "IRDAI Mandates 100% Cashless Health Insurance Facility Across All Empanelled Hospitals",
+                TitleHi = "आईआरडीएआई ने सभी पैनलबद्ध अस्पतालों में 100% कैशलेस स्वास्थ्य बीमा सुविधा अनिवार्य की",
+                SummaryEn = "The Insurance Regulatory and Development Authority of India (IRDAI) launched the nationwide 'Cashless Everywhere' initiative, enabling policyholders to receive cashless treatment even at hospitals outside their insurer's empanelled network.",
+                SummaryHi = "भारतीय बीमा नियामक और विकास प्राधिकरण (IRDAI) ने राष्ट्रव्यापी 'कैशलेस एवरीव्हेयर' पहल शुरू की, जिससे पॉलिसीधारक अपने बीमाकर्ता के पैनल से बाहर के अस्पतालों में भी कैशलेस उपचार प्राप्त कर सकते हैं।",
+                BulletPointsEnJson = JsonSerializer.Serialize(new[]
+                {
+                    "Policyholders must notify their insurer at least 48 hours before elective admission or within 48 hours for emergency cases.",
+                    "IRDAI 'Bima Trinity' ecosystem: Bima Sugam (marketplace), Bima Vistar (bundled composite insurance), and Bima Vahak (women-led field distribution).",
+                    "FDI ceiling in insurance sector stands at 74% under automatic route.",
+                    "Mission: 'Insurance for All by 2047'."
+                }),
+                BulletPointsHiJson = JsonSerializer.Serialize(new[]
+                {
+                    "पॉलिसीधारकों को वैकल्पिक भर्ती से कम से कम 48 घंटे पहले या आपात स्थिति में 48 घंटे के भीतर बीमाकर्ता को सूचित करना होगा।",
+                    "आईआरडीएआई 'बीमा ट्रिनिटी': बीमा सुगम (मार्केटप्लेस), बीमा विस्तार (बंडल बीमा), और बीमा वाहक (महिला वितरण बल)।",
+                    "स्वचालित मार्ग के तहत बीमा क्षेत्र में प्रत्यक्ष विदेशी निवेश (FDI) की सीमा 74% है।",
+                    "मिशन: '2047 तक सभी के लिए बीमा'।"
+                }),
+                BankingTakeawayEn = "LIC AAO / NICL core facts: Malhotra Committee (1994) recommended IRDA. IRDA Act passed in 1999. Headquarters moved to Hyderabad in 2001.",
+                BankingTakeawayHi = "एलआईसी एएओ परीक्षा मुख्य तथ्य: मल्होत्रा समिति (1994) ने आईआरडीए की सिफारिश की थी। 1999 में अधिनियम पारित। मुख्यालय 2001 में हैदराबाद स्थानांतरित।",
+                StaticGkFactEn = "IRDAI Chairman: Debasish Panda | Headquarters: Hyderabad, Telangana.",
+                StaticGkFactHi = "आईआरडीएआई अध्यक्ष: देबाशीष पांडा | मुख्यालय: हैदराबाद, तेलंगाना।",
+                Importance = ImportanceLevel.MustRead,
+                TargetExams = ExamTag.LicAao,
+                ExamTargetGroup = "Insurance",
+                Keywords = "IRDAI, LIC AAO, Cashless Everywhere, Bima Trinity, Health Insurance, Debasish Panda",
+                SourceName = "IRDAI Gazette Notification",
+                SourceUrl = "https://irdai.gov.in",
+                DisplayOrder = 7,
+                IsFeatured = true
+            };
+
             digestToday.Items.Add(item1);
             digestToday.Items.Add(item2);
             digestToday.Items.Add(item3);
             digestToday.Items.Add(item4);
             digestToday.Items.Add(item5);
+            digestToday.Items.Add(item6);
+            digestToday.Items.Add(item7);
 
             // Also create yesterday's archive entry for seamless calendar archive testing
             var digestYesterday = new DailyAffairDigest
@@ -378,7 +470,8 @@ public static class DatabaseSeeder
                 StaticGkFactEn = "NPCI Headquarters: Mumbai | Other key products: IMPS, RuPay, NACH, AePS, NETC FASTag.",
                 StaticGkFactHi = "एनपीसीआई मुख्यालय: मुंबई | अन्य प्रमुख उत्पाद: IMPS, RuPay, NACH, AePS, NETC FASTag।",
                 Importance = ImportanceLevel.MustRead,
-                TargetExams = ExamTag.AllBanking,
+                TargetExams = ExamTag.CommercialBanks,
+                ExamTargetGroup = "CommercialBanks",
                 Keywords = "NPCI, UPI, Digital Payments, RuPay, Dilip Asbe, FinTech",
                 SourceName = "NPCI Monthly Report",
                 SourceUrl = "https://npci.org.in",
@@ -415,6 +508,7 @@ public static class DatabaseSeeder
                     QuestionType = q.QuestionType,
                     DifficultyLevel = q.DifficultyLevel,
                     TargetExam = q.TargetExam,
+                    ExamTargetGroup = q.ExamTargetGroup,
                     QuestionEn = q.QuestionEn,
                     QuestionHi = q.QuestionHi,
                     OptionsEnJson = JsonSerializer.Serialize(q.OptionsEn),

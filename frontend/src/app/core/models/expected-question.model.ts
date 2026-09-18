@@ -8,6 +8,7 @@ export interface ExpectedQuestion {
   questionType: string;
   difficultyLevel: string;
   targetExam: string;
+  examTargetGroup?: string;
 
   // Bilingual Question
   questionEn: string;

@@ -29,8 +29,8 @@ import { AdminService } from '../../core/services/admin.service';
 
         <!-- Form Body -->
         <form (ngSubmit)="save()" class="p-6 max-h-[80vh] overflow-y-auto space-y-5">
-          <!-- Meta Row: Date & Category & Importance & Exam -->
-          <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+          <!-- Meta Row: Date & Category & Sector & Importance & Exam -->
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1">Target Date *</label>
               <input
@@ -56,6 +56,19 @@ import { AdminService } from '../../core/services/admin.service';
             </div>
 
             <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Sector Vertical *</label>
+              <select
+                [(ngModel)]="formData.examTargetGroup"
+                name="examTargetGroup"
+                class="w-full px-3 py-2 border border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-blue-500">
+                <option value="CommercialBanks">🏛️ Commercial Banks</option>
+                <option value="RRB_Agriculture">🌾 RRB & Agriculture</option>
+                <option value="Regulatory">📜 Regulatory</option>
+                <option value="Insurance">🛡️ Insurance</option>
+              </select>
+            </div>
+
+            <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1">Importance *</label>
               <select
                 [(ngModel)]="formData.importance"
@@ -75,11 +88,12 @@ import { AdminService } from '../../core/services/admin.service';
                 name="targetExams"
                 class="w-full px-3 py-2 border border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-blue-500">
                 <option value="AllBanking">All Banking & Insurance</option>
-                <option value="SbiPo">SBI PO / Clerk</option>
-                <option value="IbpsPo">IBPS PO / Clerk</option>
-                <option value="RbiGradeB">RBI Grade B</option>
-                <option value="LicAao">LIC AAO</option>
-                <option value="Nabard">NABARD</option>
+                <option value="IbpsRrb">🌾 IBPS RRB PO / Clerk</option>
+                <option value="SbiPo">🏛️ SBI PO / Clerk</option>
+                <option value="IbpsPo">🏛️ IBPS PO / Clerk</option>
+                <option value="RbiGradeB">📜 RBI Grade B</option>
+                <option value="LicAao">🛡️ LIC AAO</option>
+                <option value="Nabard">🌾 NABARD</option>
               </select>
             </div>
           </div>
@@ -282,6 +296,7 @@ export class AffairFormModalComponent implements OnInit {
   formData: CreateOrUpdateAffairPayload = {
     digestDate: '',
     categoryId: 1,
+    examTargetGroup: 'CommercialBanks',
     titleEn: '',
     titleHi: '',
     summaryEn: '',
@@ -308,6 +323,7 @@ export class AffairFormModalComponent implements OnInit {
         id: this.itemToEdit.id,
         digestDate: this.itemToEdit.digestDate,
         categoryId: this.itemToEdit.categoryId,
+        examTargetGroup: this.itemToEdit.examTargetGroup || 'CommercialBanks',
         titleEn: this.itemToEdit.titleEn,
         titleHi: this.itemToEdit.titleHi,
         summaryEn: this.itemToEdit.summaryEn,

@@ -27,6 +27,7 @@ public class GeneratedAffairItemResult
     public string StaticGkFactHi { get; set; } = string.Empty;
     public string Importance { get; set; } = "High";
     public string TargetExams { get; set; } = "AllBanking";
+    public string ExamTargetGroup { get; set; } = "CommercialBanks";
     public string Keywords { get; set; } = string.Empty;
     public string SourceName { get; set; } = string.Empty;
     public string SourceUrl { get; set; } = string.Empty;

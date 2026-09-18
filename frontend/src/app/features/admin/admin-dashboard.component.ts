@@ -131,6 +131,7 @@ import { AffairFormModalComponent } from './affair-form-modal.component';
             <thead class="bg-slate-50 text-slate-500 uppercase font-semibold border-b border-slate-100">
               <tr>
                 <th class="px-6 py-3">Category</th>
+                <th class="px-6 py-3">Sector</th>
                 <th class="px-6 py-3">Headline (EN / HI)</th>
                 <th class="px-6 py-3">Importance</th>
                 <th class="px-6 py-3">Target Exam</th>
@@ -139,16 +140,22 @@ import { AffairFormModalComponent } from './affair-form-modal.component';
             </thead>
             <tbody class="divide-y divide-slate-100">
               <tr *ngIf="isLoadingItems">
-                <td colspan="5" class="px-6 py-10 text-center text-slate-400">Loading articles...</td>
+                <td colspan="6" class="px-6 py-10 text-center text-slate-400">Loading articles...</td>
               </tr>
               <tr *ngIf="!isLoadingItems && items.length === 0">
-                <td colspan="5" class="px-6 py-10 text-center text-slate-400">No articles found for {{ selectedDate }}. Use the trigger button or click 'Add Manual Note'.</td>
+                <td colspan="6" class="px-6 py-10 text-center text-slate-400">No articles found for {{ selectedDate }}. Use the trigger button or click 'Add Manual Note'.</td>
               </tr>
               <tr *ngFor="let item of items" class="hover:bg-slate-50/80 transition-colors">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-700">
                     {{ item.categoryNameEn }}
                   </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span *ngIf="item.examTargetGroup === 'RRB_Agriculture'" class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-emerald-100 text-emerald-800">🌾 RRB Special</span>
+                  <span *ngIf="item.examTargetGroup === 'CommercialBanks' || !item.examTargetGroup" class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-blue-100 text-blue-800">🏛️ Commercial</span>
+                  <span *ngIf="item.examTargetGroup === 'Regulatory'" class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-purple-100 text-purple-800">📜 Regulatory</span>
+                  <span *ngIf="item.examTargetGroup === 'Insurance'" class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-amber-100 text-amber-800">🛡️ Insurance</span>
                 </td>
                 <td class="px-6 py-4">
                   <div class="font-bold text-slate-900 max-w-md line-clamp-1">{{ item.titleEn }}</div>

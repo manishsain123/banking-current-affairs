@@ -7,6 +7,7 @@ public class GeneratedQuestionResult
     public string QuestionType { get; set; } = "StandardMCQ";
     public string DifficultyLevel { get; set; } = "ExamLevel";
     public string TargetExam { get; set; } = "SBI PO / RBI Grade B";
+    public string ExamTargetGroup { get; set; } = "CommercialBanks";
     public string CategorySlug { get; set; } = "banking-finance";
 
     public string QuestionEn { get; set; } = string.Empty;

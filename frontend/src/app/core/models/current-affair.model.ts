@@ -26,6 +26,7 @@ export interface CurrentAffairItem {
   staticGkFactHi: string;
   importance: string;
   targetExams: string;
+  examTargetGroup?: string;
   keywordsList: string[];
   sourceUrl: string;
   sourceName: string;
@@ -58,6 +59,7 @@ export interface FilterParams {
   examTag?: string;
   importance?: string;
   searchQuery?: string;
+  targetGroup?: string;
   language?: string;
   userId?: string;
   pageNumber?: number;
@@ -80,6 +82,7 @@ export interface CreateOrUpdateAffairPayload {
   staticGkFactHi: string;
   importance: string;
   targetExams: string;
+  examTargetGroup?: string;
   keywords: string;
   sourceUrl?: string;
   sourceName?: string;

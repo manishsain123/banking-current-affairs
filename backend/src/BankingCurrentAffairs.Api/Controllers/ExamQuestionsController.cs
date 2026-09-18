@@ -37,13 +37,14 @@ public class ExamQuestionsController : ControllerBase
         [FromQuery] string? monthYear = null,
         [FromQuery] int? categoryId = null,
         [FromQuery] string? difficulty = null,
-        [FromQuery] string? questionType = null)
+        [FromQuery] string? questionType = null,
+        [FromQuery] string? targetGroup = null)
     {
         var targetMonth = string.IsNullOrWhiteSpace(monthYear)
             ? $"{DateTime.UtcNow.Year:D4}-{DateTime.UtcNow.Month:D2}"
             : monthYear;
 
-        var questions = await _examQuestionService.GetQuestionsByMonthAsync(targetMonth, categoryId, difficulty, questionType);
+        var questions = await _examQuestionService.GetQuestionsByMonthAsync(targetMonth, categoryId, difficulty, questionType, targetGroup);
         return Ok(questions);
     }
 

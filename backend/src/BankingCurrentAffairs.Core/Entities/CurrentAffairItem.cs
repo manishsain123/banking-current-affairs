@@ -38,6 +38,7 @@ public class CurrentAffairItem : BaseEntity
     // Exam Relevance
     public ImportanceLevel Importance { get; set; } = ImportanceLevel.Standard;
     public ExamTag TargetExams { get; set; } = ExamTag.AllBanking;
+    public string ExamTargetGroup { get; set; } = "CommercialBanks"; // "CommercialBanks", "RRB_Agriculture", "Regulatory", "Insurance"
 
     // Keywords (comma-separated or JSON) for quick search
     public string Keywords { get; set; } = string.Empty;

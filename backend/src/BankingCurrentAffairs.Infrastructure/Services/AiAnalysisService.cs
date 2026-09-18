@@ -188,6 +188,7 @@ REQUIREMENTS:
       ""questionType"": ""StatementBased"", // or ""StandardMCQ""
       ""difficultyLevel"": ""ExamLevel"", // Moderate, ExamLevel, HardPhase2
       ""targetExam"": ""SBI PO / RBI Grade B"",
+      ""examTargetGroup"": ""CommercialBanks"", // CommercialBanks, RRB_Agriculture, Regulatory, Insurance
       ""categorySlug"": ""rbi-monetary-policy"",
       ""questionEn"": ""Consider the following statements regarding...\\n1. Statement one...\\n2. Statement two...\\nWhich of the statements given above is/are correct?"",
       ""questionHi"": ""निम्नलिखित कथनों पर विचार कीजिए...\\n1. पहला कथन...\\n2. दूसरा कथन...\\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"",
@@ -253,6 +254,7 @@ REQUIREMENTS:
                     QuestionType = elem.TryGetProperty("questionType", out var qt) ? qt.GetString() ?? "StandardMCQ" : "StandardMCQ",
                     DifficultyLevel = elem.TryGetProperty("difficultyLevel", out var dl) ? dl.GetString() ?? "ExamLevel" : "ExamLevel",
                     TargetExam = elem.TryGetProperty("targetExam", out var te) ? te.GetString() ?? "SBI PO" : "SBI PO",
+                    ExamTargetGroup = elem.TryGetProperty("examTargetGroup", out var etg) ? etg.GetString() ?? "CommercialBanks" : "CommercialBanks",
                     CategorySlug = elem.TryGetProperty("categorySlug", out var cs) ? cs.GetString() ?? "banking-finance" : "banking-finance",
                     QuestionEn = elem.GetProperty("questionEn").GetString() ?? string.Empty,
                     QuestionHi = elem.GetProperty("questionHi").GetString() ?? string.Empty,
@@ -302,6 +304,7 @@ REQUIREMENTS:
                 QuestionType = "StatementBased",
                 DifficultyLevel = "ExamLevel",
                 TargetExam = "SBI PO / RBI Grade B",
+                ExamTargetGroup = "Regulatory",
                 CategorySlug = "rbi-monetary-policy",
                 QuestionEn = "With reference to the Reserve Bank of India's (RBI) revised guidelines on Key Fact Statement (KFS) for loans, consider the following statements:\n" +
                              "1. All Regulated Entities (REs) must issue KFS to all retail and MSME term loan borrowers.\n" +
@@ -344,6 +347,7 @@ REQUIREMENTS:
                 QuestionType = "StandardMCQ",
                 DifficultyLevel = "Moderate",
                 TargetExam = "IBPS PO / Clerk / SO",
+                ExamTargetGroup = "CommercialBanks",
                 CategorySlug = "schemes-inclusion",
                 QuestionEn = "Under the Pradhan Mantri Jan Dhan Yojana (PMJDY), what is the maximum Overdraft (OD) facility limit permitted per eligible household, and what is the accidental insurance cover provided on RuPay debit cards for accounts opened after August 28, 2018?",
                 QuestionHi = "प्रधानमंत्री जन धन योजना (PMJDY) के तहत प्रति पात्र परिवार अधिकतम कितनी ओवरड्राफ्ट (OD) सुविधा की अनुमति है, और 28 अगस्त 2018 के बाद खोले गए खातों के लिए रुपे डेबिट कार्ड पर कितना दुर्घटना बीमा कवर प्रदान किया जाता है?",
@@ -378,6 +382,7 @@ REQUIREMENTS:
                 QuestionType = "StatementBased",
                 DifficultyLevel = "HardPhase2",
                 TargetExam = "RBI Grade B / SBI PO",
+                ExamTargetGroup = "Regulatory",
                 CategorySlug = "banking-finance",
                 QuestionEn = "Consider the following statements regarding the Priority Sector Lending (PSL) guidelines prescribed by the Reserve Bank of India for Domestic Scheduled Commercial Banks:\n" +
                              "1. Total PSL target for Domestic Scheduled Commercial Banks is 40% of Adjusted Net Bank Credit (ANBC) or Credit Equivalent of Off-Balance Sheet Exposure (CEOBE), whichever is higher.\n" +
@@ -420,6 +425,7 @@ REQUIREMENTS:
                 QuestionType = "StandardMCQ",
                 DifficultyLevel = "ExamLevel",
                 TargetExam = "SBI PO / IBPS PO",
+                ExamTargetGroup = "CommercialBanks",
                 CategorySlug = "appointments",
                 QuestionEn = "Which autonomous body is responsible for recommending individuals for appointment as whole-time directors and non-executive chairpersons on the boards of Public Sector Banks (PSBs), Public Sector Insurance Companies (PSICs), and Financial Institutions (FIs)?",
                 QuestionHi = "सार्वजनिक क्षेत्र के बैंकों (PSBs), सार्वजनिक क्षेत्र की बीमा कंपनियों (PSICs) और वित्तीय संस्थानों (FIs) के बोर्डों पर पूर्णकालिक निदेशकों और गैर-कार्यकारी अध्यक्षों के रूप में नियुक्ति के लिए व्यक्तियों की सिफारिश करने के लिए कौन सा स्वायत्त निकाय जिम्मेदार है?",
@@ -448,6 +454,84 @@ REQUIREMENTS:
                 StaticConceptLinkHi = "भारत में बैंकों के बोर्डों के शासन पर पी.जे. नायक समिति (2014) की सिफारिशें; बैंक राष्ट्रीयकरण अधिनियम 1970/1980।",
                 ExaminerTrapWarningEn = "Trap Alert: Note the distinction: FSIB 'recommends' the candidate, but the ACC (Appointments Committee of the Cabinet) 'approves' and makes the formal appointment.",
                 ExaminerTrapWarningHi = "सावधानी: अंतर ध्यान में रखें: FSIB उम्मीदवार की केवल 'सिफारिश' करता है, जबकि औपचारिक 'नियुक्ति' मंत्रिमंडल की नियुक्ति समिति (ACC) करती है।"
+            },
+            new()
+            {
+                QuestionType = "StatementBased",
+                DifficultyLevel = "ExamLevel",
+                TargetExam = "IBPS RRB PO / Clerk / NABARD",
+                ExamTargetGroup = "RRB_Agriculture",
+                CategorySlug = "rrb-rural-finance",
+                QuestionEn = "With reference to Regional Rural Banks (RRBs) and Rural Credit architecture in India, consider the following statements:\n" +
+                             "1. RRBs were established under the provisions of the Regional Rural Banks Act, 1976 based on the recommendations of the M. Narasimham Working Group (1975).\n" +
+                             "2. The share capital of an RRB is subscribed by the Central Government, State Government, and Sponsor Bank in the ratio of 50:15:35 respectively.\n" +
+                             "3. As per RBI PSL guidelines, RRBs are required to achieve a total Priority Sector Lending (PSL) target of 40% of their Adjusted Net Bank Credit (ANBC).\n\n" +
+                             "Which of the statements given above is/are correct?",
+                QuestionHi = "भारत में क्षेत्रीय ग्रामीण बैंकों (RRBs) और ग्रामीण ऋण संरचना के संदर्भ में, निम्नलिखित कथनों पर विचार कीजिए:\n" +
+                             "1. आरआरबी की स्थापना एम. नरसिम्हम कार्य समूह (1975) की सिफारिशों के आधार पर क्षेत्रीय ग्रामीण बैंक अधिनियम, 1976 के प्रावधानों के तहत की गई थी।\n" +
+                             "2. एक आरआरबी की शेयर पूंजी में केंद्र सरकार, संबंधित राज्य सरकार और प्रायोजक बैंक का अंशदान क्रमशः 50:15:35 के अनुपात में होता है।\n" +
+                             "3. आरबीआई के पीएसएल दिशानिर्देशों के अनुसार, आरआरबी को अपने समायोजित निवल बैंक ऋण (ANBC) का 40% कुल प्राथमिकता क्षेत्र ऋण (PSL) लक्ष्य प्राप्त करना आवश्यक है।\n\n" +
+                             "उपर्युक्त कथनों में से कौन-सा/से सही है/हैं?",
+                OptionsEn = new List<string>
+                {
+                    "A) 1 and 2 only",
+                    "B) 2 and 3 only",
+                    "C) 1 and 3 only",
+                    "D) 1, 2 and 3",
+                    "E) 1 only"
+                },
+                OptionsHi = new List<string>
+                {
+                    "A) केवल 1 और 2",
+                    "B) केवल 2 और 3",
+                    "C) केवल 1 और 3",
+                    "D) 1, 2 और 3 सभी",
+                    "E) केवल 1"
+                },
+                CorrectAnswer = "A",
+                ExplanationEn = "Statements 1 and 2 are correct. Statement 3 is INCORRECT: The PSL target for Regional Rural Banks (RRBs) is 75% of ANBC (or CEOBE), NOT 40%! (40% is for domestic Scheduled Commercial Banks). Out of this 75%, 54% is mandated for Agriculture and allied activities. The first RRB in India was Prathama Bank, established on October 2, 1975 in Moradabad (UP), sponsored by Syndicate Bank.",
+                ExplanationHi = "कथन 1 और 2 सही हैं। कथन 3 गलत है: क्षेत्रीय ग्रामीण बैंकों (RRBs) के लिए पीएसएल (PSL) लक्ष्य ANBC का 75% है, न कि 40%! (40% घरेलू वाणिज्यिक बैंकों के लिए है)। भारत का पहला आरआरबी 'प्रथमा बैंक' 2 अक्टूबर 1975 को मुरादाबाद (यूपी) में स्थापित किया गया था, जिसका प्रायोजक सिंडिकेट बैंक था।",
+                DeepAnalysisEn = "RRBs serve as specialized credit delivery vehicles combining local feel with commercial discipline. In recent reforms, the Government launched the 'Amalgamation of RRBs' reducing their count from 196 to 43, alongside a ₹10,890 crore recapitalization plan to maintain Capital to Risk-Weighted Assets Ratio (CRAR) above 9% as per Basel-like RBI benchmarks.",
+                DeepAnalysisHi = "आरआरबी स्थानीय स्तर पर वाणिज्यिक अनुशासन के साथ ऋण वितरण करते हैं। सरकार ने एकीकरण सुधारों के तहत इनकी संख्या 196 से घटाकर 43 कर दी है और सीआरएआर (CRAR) को 9% से ऊपर बनाए रखने के लिए पुनर्पूंजीकरण योजना शुरू की है।",
+                StaticConceptLinkEn = "RRB Act 1976; Kelkar Committee (1986); NABARD supervision under Section 35(6) of Banking Regulation Act 1949.",
+                StaticConceptLinkHi = "आरआरबी अधिनियम 1976; केलकर समिति (1986); बैंकिंग विनियमन अधिनियम 1949 की धारा 35(6) के तहत नाबार्ड का निरीक्षण।",
+                ExaminerTrapWarningEn = "Trap Alert: In IBPS RRB PO exam, examiners frequently confuse RRB PSL target (75%) with commercial bank target (40%), and swap the shareholding ratio (50:15:35 -> Central:State:Sponsor).",
+                ExaminerTrapWarningHi = "सावधानी: आईबीपीएस आरआरबी परीक्षा में परीक्षक आरआरबी के 75% पीएसएल लक्ष्य को 40% और शेयरधारिता अनुपात (50:15:35) को अदल-बदल कर प्रश्न पूछते हैं।"
+            },
+            new()
+            {
+                QuestionType = "StandardMCQ",
+                DifficultyLevel = "ExamLevel",
+                TargetExam = "LIC AAO / Insurance Special",
+                ExamTargetGroup = "Insurance",
+                CategorySlug = "banking-finance",
+                QuestionEn = "Under the Insurance Regulatory and Development Authority of India (IRDAI) guidelines, what is the Foreign Direct Investment (FDI) cap permitted in the Indian insurance sector under the automatic route, and what is the target vision of IRDAI under 'Insurance for All'?",
+                QuestionHi = "भारतीय बीमा नियामक और विकास प्राधिकरण (IRDAI) के दिशानिर्देशों के तहत, स्वचालित मार्ग के तहत भारतीय बीमा क्षेत्र में कितने प्रतिशत प्रत्यक्ष विदेशी निवेश (FDI) की अनुमति है, और 'सभी के लिए बीमा' के तहत IRDAI का लक्ष्य वर्ष क्या है?",
+                OptionsEn = new List<string>
+                {
+                    "A) FDI Limit: 49%; Target Year: 2030",
+                    "B) FDI Limit: 74%; Target Year: 2047",
+                    "C) FDI Limit: 74%; Target Year: 2030",
+                    "D) FDI Limit: 100%; Target Year: 2047",
+                    "E) FDI Limit: 51%; Target Year: 2025"
+                },
+                OptionsHi = new List<string>
+                {
+                    "A) एफडीआई सीमा: 49%; लक्ष्य वर्ष: 2030",
+                    "B) एफडीआई सीमा: 74%; लक्ष्य वर्ष: 2047",
+                    "C) एफडीआई सीमा: 74%; लक्ष्य वर्ष: 2030",
+                    "D) एफडीआई सीमा: 100%; लक्ष्य वर्ष: 2047",
+                    "E) एफडीआई सीमा: 51%; लक्ष्य वर्ष: 2025"
+                },
+                CorrectAnswer = "B",
+                ExplanationEn = "Correct Answer is B. The FDI ceiling in insurance companies was enhanced from 49% to 74% under the Insurance (Amendment) Act, 2021 through the automatic route. IRDAI has set an ambitious mission titled 'Insurance for All by 2047' (coinciding with India's centenary of independence). Additionally, IRDAI has rolled out the 'Bima Trinity' (Bima Sugam, Bima Vistar, Bima Vahak).",
+                ExplanationHi = "सही उत्तर B है। बीमा (संशोधन) अधिनियम 2021 के तहत स्वचालित मार्ग से बीमा कंपनियों में प्रत्यक्ष विदेशी निवेश (FDI) की सीमा को 49% से बढ़ाकर 74% कर दिया गया था। IRDAI ने 2047 तक 'सभी के लिए बीमा' का महत्वाकांक्षी लक्ष्य निर्धारित किया है।",
+                DeepAnalysisEn = "IRDAI is executing sweeping regulatory overhauls including replacing rule-based regimes with risk-based capital (RBC) frameworks, 100% cashless treatment at any empanelled hospital under 'Cashless Everywhere', and removal of age limits (previously 65 years) for purchasing health insurance policies.",
+                DeepAnalysisHi = "IRDAI जोखिम-आधारित पूंजी (RBC) ढांचे, 'कैशलेस एवरीव्हेयर' के तहत देश भर में कैशलेस उपचार, और स्वास्थ्य बीमा खरीदने के लिए 65 वर्ष की ऊपरी आयु सीमा को समाप्त करने जैसे ऐतिहासिक सुधार लागू कर रहा है।",
+                StaticConceptLinkEn = "Insurance Act 1938; IRDA Act 1999 (Malhotra Committee); IRDAI Chairman: Debasish Panda; Headquarters: Hyderabad, Telangana.",
+                StaticConceptLinkHi = "बीमा अधिनियम 1938; आईआरडीए अधिनियम 1999 (मल्होत्रा समिति); अध्यक्ष: देबाशीष पांडा; मुख्यालय: हैदराबाद, तेलंगाना।",
+                ExaminerTrapWarningEn = "Trap Alert: While insurance companies have a 74% FDI cap, Insurance Intermediaries (brokers) have 100% FDI permitted. Keep this critical distinction in mind for LIC AAO and NICL exams.",
+                ExaminerTrapWarningHi = "सावधानी: बीमा कंपनियों में 74% एफडीआई है, जबकि बीमा मध्यस्थों (ब्रोकर्स) के लिए 100% एफडीआई की अनुमति है। इस अंतर को हमेशा याद रखें।"
             }
         };
     }

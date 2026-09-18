@@ -38,6 +38,7 @@ public class CreateOrUpdateAffairDto
 
     public ImportanceLevel Importance { get; set; } = ImportanceLevel.Standard;
     public ExamTag TargetExams { get; set; } = ExamTag.AllBanking;
+    public string ExamTargetGroup { get; set; } = "CommercialBanks";
 
     public string Keywords { get; set; } = string.Empty;
     public string SourceUrl { get; set; } = string.Empty;

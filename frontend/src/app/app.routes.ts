@@ -4,6 +4,7 @@ import { ArchiveCalendarComponent } from './features/archive-calendar/archive-ca
 import { BookmarksComponent } from './features/bookmarks/bookmarks.component';
 import { AdminDashboardComponent } from './features/admin/admin-dashboard.component';
 import { ExamZoneComponent } from './features/exam-zone/exam-zone.component';
+import { RrbAgricultureComponent } from './features/rrb-agriculture/rrb-agriculture.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,11 @@ export const routes: Routes = [
     path: 'exam-zone',
     component: ExamZoneComponent,
     title: 'BankDCA - Exam Target Zone & Expected Questions'
+  },
+  {
+    path: 'rrb-agriculture',
+    component: RrbAgricultureComponent,
+    title: 'BankDCA - RRB & Agriculture Banking Special'
   },
   {
     path: 'archive',

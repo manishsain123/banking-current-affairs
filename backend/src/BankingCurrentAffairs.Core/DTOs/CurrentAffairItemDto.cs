@@ -37,6 +37,7 @@ public class CurrentAffairItemDto
 
     public ExamTag TargetExams { get; set; }
     public string TargetExamsText => TargetExams.ToString();
+    public string ExamTargetGroup { get; set; } = "CommercialBanks";
 
     public List<string> KeywordsList { get; set; } = new();
 

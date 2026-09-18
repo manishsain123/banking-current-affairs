@@ -26,11 +26,12 @@ import { CommonModule } from '@angular/common';
           <div>
             <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Key Exam Coverage</h4>
             <ul class="space-y-1.5 text-xs">
+              <li><span class="hover:text-blue-400 transition-colors">IBPS RRB PO & Clerk (Gramin Banks)</span></li>
               <li><span class="hover:text-blue-400 transition-colors">SBI PO & SBI Clerk (General Awareness)</span></li>
               <li><span class="hover:text-blue-400 transition-colors">IBPS PO / Clerk / SO (Banking Awareness)</span></li>
               <li><span class="hover:text-blue-400 transition-colors">RBI Grade B (Phase 1 & Phase 2 ESI/FM)</span></li>
-              <li><span class="hover:text-blue-400 transition-colors">LIC AAO / GIC / NIACL AO (Insurance)</span></li>
               <li><span class="hover:text-blue-400 transition-colors">NABARD Grade A & SEBI Grade A</span></li>
+              <li><span class="hover:text-blue-400 transition-colors">LIC AAO / GIC / NIACL AO (Insurance)</span></li>
             </ul>
           </div>
 
@@ -38,11 +39,12 @@ import { CommonModule } from '@angular/common';
           <div>
             <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Syllabus Categories</h4>
             <ul class="space-y-1.5 text-xs">
+              <li><span class="text-emerald-400 font-semibold">RRB 75% PSL & Rural Finance</span></li>
               <li><span>RBI Circulars & Monetary Policy</span></li>
               <li><span>Key Financial Ratios & Repo Rates</span></li>
-              <li><span>Government Schemes & PMJDY</span></li>
+              <li><span>Government Schemes & PMJDY / KCC</span></li>
               <li><span>Banking Mergers & Appointments</span></li>
-              <li><span>Static GK & Banking Terms</span></li>
+              <li><span>Static GK & Banking Statutory Links</span></li>
             </ul>
           </div>
 

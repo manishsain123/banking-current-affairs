@@ -13,6 +13,7 @@ public class ExpectedQuestionDto
     public string QuestionType { get; set; } = string.Empty;
     public string DifficultyLevel { get; set; } = string.Empty;
     public string TargetExam { get; set; } = string.Empty;
+    public string ExamTargetGroup { get; set; } = "CommercialBanks";
 
     // Bilingual Questions
     public string QuestionEn { get; set; } = string.Empty;

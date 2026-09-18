@@ -45,6 +45,7 @@ export class CurrentAffairsService {
     if (filter.examTag) params = params.set('examTag', filter.examTag);
     if (filter.importance) params = params.set('importance', filter.importance);
     if (filter.searchQuery) params = params.set('searchQuery', filter.searchQuery);
+    if (filter.targetGroup) params = params.set('targetGroup', filter.targetGroup);
     if (filter.pageNumber) params = params.set('pageNumber', filter.pageNumber.toString());
     if (filter.pageSize) params = params.set('pageSize', filter.pageSize.toString());
 

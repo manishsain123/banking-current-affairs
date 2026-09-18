@@ -162,7 +162,7 @@ REQUIREMENTS:
   ],
   ""items"": [
     {{
-      ""categorySlug"": ""rbi-monetary-policy"", // options: banking-finance, rbi-monetary-policy, economy-gdp, schemes-inclusion, appointments, mous-mergers, national-international, awards-indexes, days-themes
+      ""categorySlug"": ""rbi-monetary-policy"", // options: banking-finance, rbi-monetary-policy, economy-gdp, schemes-inclusion, appointments, mous-mergers, national-international, awards-indexes, days-themes, rrb-rural-finance
       ""titleEn"": ""English Headline"",
       ""titleHi"": ""हिंदी शीर्षक"",
       ""summaryEn"": ""Crisp 2-sentence explanation in English."",
@@ -174,7 +174,8 @@ REQUIREMENTS:
       ""staticGkFactEn"": ""Headquarters, year established, current chief/governor"",
       ""staticGkFactHi"": ""मुख्यालय, स्थापना वर्ष, वर्तमान प्रमुख/गवर्नर"",
       ""importance"": ""MustRead"", // Standard, High, MustRead, PreviousYearsPattern
-      ""targetExams"": ""AllBanking"", // AllBanking, SbiPo, IbpsPo, RbiGradeB
+      ""targetExams"": ""AllBanking"", // AllBanking, SbiPo, IbpsPo, RbiGradeB, IbpsRrbPo, LicAao
+      ""examTargetGroup"": ""CommercialBanks"", // CommercialBanks, RRB_Agriculture, Regulatory, Insurance
       ""keywords"": ""RBI, Banking, Repo, Policy"",
       ""sourceName"": ""RBI Bulletin / The Hindu"",
       ""sourceUrl"": ""https://rbi.org.in""
@@ -245,6 +246,7 @@ Generate 4 to 6 high-value current affairs items strictly covering banking, fina
                     StaticGkFactHi = "सहकारी बैंक दोहरे नियमन के अंतर्गत हैं: बैंकिंग कार्य बीआर एक्ट 1949 के तहत आरबीआई द्वारा, प्रबंधन आरसीएस द्वारा।",
                     Importance = "MustRead",
                     TargetExams = "RbiGradeB",
+                    ExamTargetGroup = "Regulatory",
                     Keywords = "RBI, UCB, Co-operative Banks, Cyber Security, N.S. Vishwanathan Committee",
                     SourceName = "RBI Regulatory Circular",
                     SourceUrl = "https://rbi.org.in"
@@ -276,13 +278,14 @@ Generate 4 to 6 high-value current affairs items strictly covering banking, fina
                     StaticGkFactHi = "पीएनबी एमडी और सीईओ: अतुल कुमार गोयल | मुख्यालय: नई दिल्ली | टैगलाइन: 'द नेम यू कैन बैंक अपॉन' | 1894 में लाला लाजपत राय द्वारा लाहौर में स्थापित।",
                     Importance = "High",
                     TargetExams = "IbpsPo",
+                    ExamTargetGroup = "CommercialBanks",
                     Keywords = "PNB, MUDRA, OCEN, Account Aggregator, Atul Kumar Goel, PSBs",
                     SourceName = "PNB Corporate Communications",
                     SourceUrl = "https://pnbindia.in"
                 },
                 new()
                 {
-                    CategorySlug = "schemes-inclusion",
+                    CategorySlug = "rrb-rural-finance",
                     TitleEn = "NABARD Sanctions ₹1,850 Crore under RIDF for Rural Infrastructure Projects",
                     TitleHi = "नाबार्ड ने ग्रामीण बुनियादी ढांचा परियोजनाओं के लिए RIDF के तहत ₹1,850 करोड़ मंजूर किए",
                     SummaryEn = "The National Bank for Agriculture and Rural Development (NABARD) sanctioned ₹1,850 crore under the Rural Infrastructure Development Fund (RIDF) for road connectivity and micro-irrigation in rural districts.",
@@ -306,10 +309,75 @@ Generate 4 to 6 high-value current affairs items strictly covering banking, fina
                     StaticGkFactEn = "NABARD Chairman: Shaji K.V. | Founded: 12 July 1982 on recommendation of B. Sivaraman Committee | Headquarters: Mumbai | Capital owned 100% by Government of India.",
                     StaticGkFactHi = "नाबार्ड अध्यक्ष: शाजी के.वी. | स्थापना: 12 जुलाई 1982 (बी. शिवरामन समिति की सिफारिश) | मुख्यालय: मुंबई | 100% स्वामित्व भारत सरकार का।",
                     Importance = "MustRead",
-                    TargetExams = "Nabard",
+                    TargetExams = "IbpsRrbPo",
+                    ExamTargetGroup = "RRB_Agriculture",
                     Keywords = "NABARD, RIDF, Priority Sector Lending, PSL, Shaji K.V., Sivaraman Committee",
                     SourceName = "NABARD Press Release",
                     SourceUrl = "https://nabard.org"
+                },
+                new()
+                {
+                    CategorySlug = "rrb-rural-finance",
+                    TitleEn = "Government Enhances KCC Limit to ₹3 Lakh at 4% Effective Interest & Completes PACS Digitalization",
+                    TitleHi = "सरकार ने केसीसी सीमा को ₹3 लाख तक बढ़ाया (4% प्रभावी ब्याज दर) और पैक्स डिजिटलीकरण पूरा किया",
+                    SummaryEn = "Ministry of Cooperation and Finance reviewed rural credit penetration: 65,000 Primary Agricultural Credit Societies (PACS) integrated with Core Banking Systems (CBS) of District Central Co-op Banks and RRBs.",
+                    SummaryHi = "सहकारिता और वित्त मंत्रालय ने ग्रामीण ऋण पैठ की समीक्षा की: 65,000 प्राथमिक कृषि साख समितियों (PACS) को जिला केंद्रीय सहकारी बैंकों और आरआरबी के कोर बैंकिंग सिस्टम (CBS) से जोड़ा गया।",
+                    BulletPointsEn = new List<string>
+                    {
+                        "Kisan Credit Card (KCC) scheme provides working capital at 7% p.a., with 2% Interest Subvention (IS) and 3% Prompt Repayment Incentive (PRI), resulting in net 4% p.a.",
+                        "RRBs mandatory Priority Sector Lending (PSL) target stands at 75% of ANBC.",
+                        "Ownership structure of RRBs: Central Government 50%, State Government 15%, Sponsor Bank 35%.",
+                        "PACS computerized with standard ERP software under NABARD supervision."
+                    },
+                    BulletPointsHi = new List<string>
+                    {
+                        "किसान क्रेडिट कार्ड (KCC) योजना 7% ब्याज पर कार्यशील पूंजी देती है, 3% शीघ्र पुनर्भुगतान प्रोत्साहन (PRI) से शुद्ध दर 4% हो जाती है।",
+                        "आरआरबी के लिए अनिवार्य प्राथमिकता क्षेत्र ऋण (PSL) लक्ष्य एएनबीसी का 75% है।",
+                        "आरआरबी की शेयरधारिता: केंद्र सरकार 50%, राज्य सरकार 15%, प्रायोजक बैंक 35%।",
+                        "नाबार्ड की देखरेख में मानक ईआरपी सॉफ्टवेयर के साथ पैक्स का डिजिटलीकरण।"
+                    },
+                    BankingTakeawayEn = "Critical for IBPS RRB PO/Clerk: First RRB was Prathama Bank (Oct 2, 1975, Moradabad UP, Syndicate Bank sponsored). Narasimham Committee (1975).",
+                    BankingTakeawayHi = "आईबीपीएस आरआरबी परीक्षा हेतु अत्यंत महत्वपूर्ण: पहला आरआरबी प्रथमा बैंक (2 अक्टूबर 1975, मुरादाबाद, सिंडिकेट बैंक प्रायोजित)। नरसिम्हम समिति (1975)।",
+                    StaticGkFactEn = "RRB Act 1976 | Regulated by RBI and supervised by NABARD under Section 35(6) of Banking Regulation Act, 1949.",
+                    StaticGkFactHi = "आरआरबी अधिनियम 1976 | आरबीआई द्वारा विनियमित और बीआर अधिनियम 1949 की धारा 35(6) के तहत नाबार्ड द्वारा पर्यवेक्षित।",
+                    Importance = "MustRead",
+                    TargetExams = "IbpsRrbPo",
+                    ExamTargetGroup = "RRB_Agriculture",
+                    Keywords = "RRB, KCC, PACS, NABARD, Interest Subvention, PSL 75%, Rural Banking",
+                    SourceName = "Ministry of Cooperation Bulletin",
+                    SourceUrl = "https://cooperation.gov.in"
+                },
+                new()
+                {
+                    CategorySlug = "banking-finance",
+                    TitleEn = "IRDAI Eliminates Age Limit for Health Insurance Policies & Advances 'Bima Sugam' Platform",
+                    TitleHi = "आईआरडीएआई ने स्वास्थ्य बीमा पॉलिसियों के लिए आयु सीमा समाप्त की और 'बीमा सुगम' मंच को आगे बढ़ाया",
+                    SummaryEn = "Insurance Regulatory and Development Authority of India (IRDAI) removed the maximum age restriction of 65 years for purchasing health insurance, mandating insurers to offer covers across all demographics.",
+                    SummaryHi = "भारतीय बीमा नियामक और विकास प्राधिकरण (IRDAI) ने स्वास्थ्य बीमा खरीदने के लिए 65 वर्ष की अधिकतम आयु सीमा को हटा दिया है, जिससे बीमाकर्ताओं को सभी आयु वर्गों के लिए कवर प्रदान करना अनिवार्य हो गया है।",
+                    BulletPointsEn = new List<string>
+                    {
+                        "Insurers prohibited from refusing health insurance coverage to senior citizens based purely on age.",
+                        "IRDAI 'Bima Trinity' initiatives: Bima Sugam (electronic marketplace), Bima Vistar (all-in-one bundled product), Bima Vahak (women-led distribution workforce).",
+                        "Mission goal: 'Insurance for All by 2047'.",
+                        "FDI limit in insurance companies is 74% under automatic route, while insurance intermediaries have 100% FDI."
+                    },
+                    BulletPointsHi = new List<string>
+                    {
+                        "बीमाकर्ताओं को केवल आयु के आधार पर वरिष्ठ नागरिकों को स्वास्थ्य बीमा कवर देने से मना करने पर रोक।",
+                        "आईआरडीएआई 'बीमा ट्रिनिटी' पहल: बीमा सुगम (इलेक्ट्रॉनिक मार्केटप्लेस), बीमा विस्तार (बंडल उत्पाद), बीमा वाहक (महिला वितरण बल)।",
+                        "मिशन लक्ष्य: '2047 तक सभी के लिए बीमा'।",
+                        "बीमा कंपनियों में स्वचालित मार्ग से 74% एफडीआई और बीमा मध्यस्थों के लिए 100% एफडीआई।"
+                    },
+                    BankingTakeawayEn = "Core Insurance Awareness for LIC AAO / NICL / UIIC: Malhotra Committee (1994) recommended setting up IRDA. IRDA Act passed in 1999.",
+                    BankingTakeawayHi = "एलआईसी एएओ / एनआईसीएल परीक्षाओं के लिए महत्वपूर्ण: मल्होत्रा समिति (1994) ने आईआरडीए की स्थापना की सिफारिश की थी। 1999 में अधिनियम पारित।",
+                    StaticGkFactEn = "IRDAI Chairman: Debasish Panda | Headquarters: Hyderabad, Telangana | Formed: 1999 (Statutory body in 2000).",
+                    StaticGkFactHi = "आईआरडीएआई अध्यक्ष: देबाशीष पांडा | मुख्यालय: हैदराबाद, तेलंगाना | स्थापना: 1999 (वैधानिक निकाय 2000)।",
+                    Importance = "MustRead",
+                    TargetExams = "LicAao",
+                    ExamTargetGroup = "Insurance",
+                    Keywords = "IRDAI, LIC AAO, Health Insurance, Bima Sugam, Bima Trinity, Debasish Panda",
+                    SourceName = "IRDAI Press Release",
+                    SourceUrl = "https://irdai.gov.in"
                 }
             }
         };

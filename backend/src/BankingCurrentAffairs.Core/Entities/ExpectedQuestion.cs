@@ -30,6 +30,11 @@ public class ExpectedQuestion : BaseEntity
     /// </summary>
     public string TargetExam { get; set; } = "All Banking & Insurance";
 
+    /// <summary>
+    /// Target group: "CommercialBanks", "RRB_Agriculture", "Regulatory", "Insurance"
+    /// </summary>
+    public string ExamTargetGroup { get; set; } = "CommercialBanks";
+
     // Bilingual Questions
     public string QuestionEn { get; set; } = string.Empty;
     public string QuestionHi { get; set; } = string.Empty;

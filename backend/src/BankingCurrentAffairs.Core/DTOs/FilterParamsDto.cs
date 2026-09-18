@@ -12,6 +12,7 @@ public class FilterParamsDto
     public ImportanceLevel? Importance { get; set; }
     public string? SearchQuery { get; set; }
     public string? Language { get; set; } = "all"; // "en", "hi", "all"
+    public string? TargetGroup { get; set; } // "CommercialBanks", "RRB_Agriculture", "Regulatory", "Insurance"
     public string? UserId { get; set; }
 
     public int PageNumber { get; set; } = 1;

@@ -72,7 +72,8 @@ public class ExamQuestionService : IExamQuestionService
         string monthYear,
         int? categoryId = null,
         string? difficulty = null,
-        string? questionType = null)
+        string? questionType = null,
+        string? targetGroup = null)
     {
         var query = _context.ExpectedQuestions
             .Include(q => q.Category)
@@ -92,6 +93,11 @@ public class ExamQuestionService : IExamQuestionService
         if (!string.IsNullOrWhiteSpace(questionType) && questionType != "All")
         {
             query = query.Where(q => q.QuestionType == questionType);
+        }
+
+        if (!string.IsNullOrWhiteSpace(targetGroup) && targetGroup != "All")
+        {
+            query = query.Where(q => q.ExamTargetGroup == targetGroup);
         }
 
         var list = await query
@@ -141,6 +147,7 @@ public class ExamQuestionService : IExamQuestionService
                 QuestionType = g.QuestionType,
                 DifficultyLevel = g.DifficultyLevel,
                 TargetExam = g.TargetExam,
+                ExamTargetGroup = g.ExamTargetGroup ?? "CommercialBanks",
                 QuestionEn = g.QuestionEn,
                 QuestionHi = g.QuestionHi,
                 OptionsEnJson = JsonSerializer.Serialize(g.OptionsEn),
@@ -202,6 +209,7 @@ public class ExamQuestionService : IExamQuestionService
             QuestionType = q.QuestionType,
             DifficultyLevel = q.DifficultyLevel,
             TargetExam = q.TargetExam,
+            ExamTargetGroup = q.ExamTargetGroup,
             QuestionEn = q.QuestionEn,
             QuestionHi = q.QuestionHi,
             OptionsEn = optionsEn,

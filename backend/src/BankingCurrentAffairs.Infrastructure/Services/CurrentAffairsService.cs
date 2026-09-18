@@ -105,6 +105,11 @@ public class CurrentAffairsService : ICurrentAffairsService
             query = query.Where(i => i.Importance == filter.Importance.Value);
         }
 
+        if (!string.IsNullOrWhiteSpace(filter.TargetGroup) && filter.TargetGroup != "All")
+        {
+            query = query.Where(i => i.ExamTargetGroup == filter.TargetGroup);
+        }
+
         if (!string.IsNullOrWhiteSpace(filter.SearchQuery))
         {
             var search = filter.SearchQuery.Trim().ToLower();
@@ -200,6 +205,7 @@ public class CurrentAffairsService : ICurrentAffairsService
             StaticGkFactHi = dto.StaticGkFactHi,
             Importance = dto.Importance,
             TargetExams = dto.TargetExams,
+            ExamTargetGroup = dto.ExamTargetGroup ?? "CommercialBanks",
             Keywords = dto.Keywords,
             SourceName = dto.SourceName,
             SourceUrl = dto.SourceUrl,
@@ -240,6 +246,10 @@ public class CurrentAffairsService : ICurrentAffairsService
         item.StaticGkFactHi = dto.StaticGkFactHi;
         item.Importance = dto.Importance;
         item.TargetExams = dto.TargetExams;
+        if (!string.IsNullOrWhiteSpace(dto.ExamTargetGroup))
+        {
+            item.ExamTargetGroup = dto.ExamTargetGroup;
+        }
         item.Keywords = dto.Keywords;
         item.SourceName = dto.SourceName;
         item.SourceUrl = dto.SourceUrl;
@@ -318,6 +328,7 @@ public class CurrentAffairsService : ICurrentAffairsService
             StaticGkFactHi = item.StaticGkFactHi,
             Importance = item.Importance,
             TargetExams = item.TargetExams,
+            ExamTargetGroup = item.ExamTargetGroup,
             KeywordsList = (item.Keywords ?? string.Empty).Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).ToList(),
             SourceName = item.SourceName,
             SourceUrl = item.SourceUrl,

@@ -24,13 +24,15 @@ export class ExamQuestionService {
     monthYear: string,
     categoryId?: number,
     difficulty?: string,
-    questionType?: string
+    questionType?: string,
+    targetGroup?: string
   ): Observable<ExpectedQuestion[]> {
     let params = new HttpParams().set('monthYear', monthYear);
 
     if (categoryId) params = params.set('categoryId', categoryId.toString());
     if (difficulty && difficulty !== 'All') params = params.set('difficulty', difficulty);
     if (questionType && questionType !== 'All') params = params.set('questionType', questionType);
+    if (targetGroup && targetGroup !== 'All') params = params.set('targetGroup', targetGroup);
 
     return this.http.get<ExpectedQuestion[]>(this.baseUrl, { params });
   }

@@ -16,27 +16,27 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <!-- Top Title Banner -->
-      <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950 text-white rounded-2xl p-6 sm:p-8 shadow-md border border-indigo-900/50 mb-8">
+      <div class="bg-gradient-to-r from-fintech-dark via-slate-900 to-indigo-950 text-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-800 mb-8">
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
-            <div class="flex items-center space-x-2 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse"></span>
+            <div class="flex items-center space-x-2 text-fintech-gold text-xs font-bold uppercase tracking-wider mb-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-fintech-gold animate-pulse"></span>
               <span>AI Exam-Level Analysis & Target Zone</span>
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
               Expected Exam Questions & Deep Analysis
             </h1>
             <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
-              Synthesized specifically from monthly current affairs using SBI PO, IBPS PO, and RBI Grade B statement-based patterns with statutory banking concepts and examiner trap warnings.
+              Synthesized specifically from monthly current affairs covering SBI PO, IBPS PO, IBPS RRB PO/Clerk, and RBI Grade B statement-based patterns with statutory banking concepts and examiner trap warnings.
             </p>
           </div>
 
           <!-- Score Card & AI Generator Action -->
           <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-shrink-0 no-print">
             <!-- Score Pill -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl px-4 py-3 text-center w-full sm:w-auto">
+            <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl px-4 py-3 text-center w-full sm:w-auto shadow-sm">
               <div class="text-[11px] text-slate-400 uppercase font-semibold">Your Accuracy</div>
-              <div class="text-xl font-black text-indigo-300">
+              <div class="text-xl font-black text-fintech-gold">
                 {{ userCorrectCount() }}/{{ userAttemptedCount() }}
                 <span class="text-xs font-medium text-slate-400">({{ getAccuracy() }}%)</span>
               </div>
@@ -46,7 +46,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
             <button
               (click)="triggerAiGeneration()"
               [disabled]="isGenerating"
-              class="px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-indigo-950/50 transition-all flex items-center justify-center space-x-2 w-full sm:w-auto disabled:opacity-50">
+              class="px-5 py-3 bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-600 hover:to-indigo-600 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center justify-center space-x-2 w-full sm:w-auto disabled:opacity-50">
               <svg *ngIf="isGenerating" class="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -61,7 +61,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
       </div>
 
       <!-- Month Selector & Filters Bar -->
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-5 mb-8 no-print space-y-4">
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200/90 p-5 mb-8 no-print space-y-4">
         <!-- Month Selector Pills -->
         <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
           <div class="flex items-center space-x-2">
@@ -70,14 +70,14 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
               <button
                 *ngFor="let m of availableMonths()"
                 (click)="selectMonth(m.monthYear)"
-                [class.bg-indigo-600]="selectedMonthYear() === m.monthYear"
+                [class.bg-slate-900]="selectedMonthYear() === m.monthYear"
                 [class.text-white]="selectedMonthYear() === m.monthYear"
                 [class.bg-slate-100]="selectedMonthYear() !== m.monthYear"
                 [class.text-slate-700]="selectedMonthYear() !== m.monthYear"
-                class="px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all hover:bg-indigo-500 hover:text-white flex items-center space-x-1.5">
+                class="px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all hover:bg-slate-800 hover:text-white flex items-center space-x-1.5">
                 <span>{{ m.monthYearDisplay }}</span>
                 <span class="text-[10px] px-1.5 py-0.2 rounded-full"
-                  [class.bg-indigo-800]="selectedMonthYear() === m.monthYear"
+                  [class.bg-slate-700]="selectedMonthYear() === m.monthYear"
                   [class.bg-slate-200]="selectedMonthYear() !== m.monthYear">
                   {{ m.questionCount }}
                 </span>
@@ -87,11 +87,66 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
 
           <button
             (click)="triggerPrint()"
-            class="text-xs font-medium text-slate-500 hover:text-indigo-600 flex items-center space-x-1">
+            class="text-xs font-semibold text-slate-600 hover:text-blue-700 flex items-center space-x-1">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
             </svg>
             <span>Print Question Paper</span>
+          </button>
+        </div>
+
+        <!-- Target Group Vertical Filter Pills -->
+        <div class="flex items-center space-x-2 overflow-x-auto pb-1 scrollbar-none border-b border-slate-100 pb-3">
+          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">Exam Vertical:</span>
+          
+          <button
+            (click)="selectTargetGroup('All')"
+            [class.bg-slate-900]="selectedTargetGroup === 'All'"
+            [class.text-white]="selectedTargetGroup === 'All'"
+            [class.bg-slate-100]="selectedTargetGroup !== 'All'"
+            [class.text-slate-700]="selectedTargetGroup !== 'All'"
+            class="px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all hover:bg-slate-800 hover:text-white">
+            All Verticals
+          </button>
+
+          <button
+            (click)="selectTargetGroup('RRB_Agriculture')"
+            [class.bg-emerald-700]="selectedTargetGroup === 'RRB_Agriculture'"
+            [class.text-white]="selectedTargetGroup === 'RRB_Agriculture'"
+            [class.bg-emerald-50]="selectedTargetGroup !== 'RRB_Agriculture'"
+            [class.text-emerald-800]="selectedTargetGroup !== 'RRB_Agriculture'"
+            class="px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border border-emerald-300 hover:bg-emerald-700 hover:text-white flex items-center space-x-1">
+            <span>🌾 RRB & Agriculture (75% PSL)</span>
+          </button>
+
+          <button
+            (click)="selectTargetGroup('CommercialBanks')"
+            [class.bg-blue-800]="selectedTargetGroup === 'CommercialBanks'"
+            [class.text-white]="selectedTargetGroup === 'CommercialBanks'"
+            [class.bg-blue-50]="selectedTargetGroup !== 'CommercialBanks'"
+            [class.text-blue-800]="selectedTargetGroup !== 'CommercialBanks'"
+            class="px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border border-blue-200 hover:bg-blue-800 hover:text-white flex items-center space-x-1">
+            <span>🏛️ SBI & IBPS Commercial</span>
+          </button>
+
+          <button
+            (click)="selectTargetGroup('Regulatory')"
+            [class.bg-purple-800]="selectedTargetGroup === 'Regulatory'"
+            [class.text-white]="selectedTargetGroup === 'Regulatory'"
+            [class.bg-purple-50]="selectedTargetGroup !== 'Regulatory'"
+            [class.text-purple-800]="selectedTargetGroup !== 'Regulatory'"
+            class="px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border border-purple-200 hover:bg-purple-800 hover:text-white flex items-center space-x-1">
+            <span>📜 RBI Grade B & Regulatory</span>
+          </button>
+
+          <button
+            (click)="selectTargetGroup('Insurance')"
+            [class.bg-amber-700]="selectedTargetGroup === 'Insurance'"
+            [class.text-white]="selectedTargetGroup === 'Insurance'"
+            [class.bg-amber-50]="selectedTargetGroup !== 'Insurance'"
+            [class.text-amber-800]="selectedTargetGroup !== 'Insurance'"
+            class="px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border border-amber-300 hover:bg-amber-700 hover:text-white flex items-center space-x-1">
+            <span>🛡️ LIC & Insurance (IRDAI)</span>
           </button>
         </div>
 
@@ -103,7 +158,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
             <select
               [(ngModel)]="selectedCategoryId"
               (change)="loadQuestions()"
-              class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-fintech-navy">
               <option [ngValue]="null">All Categories</option>
               <option *ngFor="let cat of categories" [ngValue]="cat.id">
                 {{ langService.isHindi() ? cat.nameHi : cat.nameEn }}
@@ -117,7 +172,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
             <select
               [(ngModel)]="selectedQuestionType"
               (change)="loadQuestions()"
-              class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-fintech-navy">
               <option value="All">All Formats (Statement & Standard)</option>
               <option value="StatementBased">Statement-Based (RBI/SBI PO pattern)</option>
               <option value="StandardMCQ">Standard 5-Option MCQs</option>
@@ -130,7 +185,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
             <select
               [(ngModel)]="selectedDifficulty"
               (change)="loadQuestions()"
-              class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-fintech-navy">
               <option value="All">All Difficulty Levels</option>
               <option value="Moderate">Moderate (Prelims / Clerk)</option>
               <option value="ExamLevel">Exam Level (SBI/IBPS PO Mains)</option>
@@ -142,25 +197,25 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
 
       <!-- Loading State -->
       <div *ngIf="isLoading" class="text-center py-16">
-        <div class="inline-block w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mb-3"></div>
+        <div class="inline-block w-8 h-8 border-4 border-fintech-navy border-t-transparent rounded-full animate-spin mb-3"></div>
         <div class="text-sm font-medium text-slate-500">Loading exam questions for {{ selectedMonthYear() }}...</div>
       </div>
 
       <!-- Empty State -->
       <div *ngIf="!isLoading && questions().length === 0" class="bg-white rounded-2xl p-12 text-center border border-slate-200 mb-8">
-        <div class="w-14 h-14 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto mb-3">
+        <div class="w-14 h-14 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center mx-auto mb-3">
           <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
           </svg>
         </div>
-        <h3 class="text-base font-bold text-slate-800 mb-1">No questions generated yet for {{ selectedMonthYear() }}</h3>
+        <h3 class="text-base font-bold text-slate-800 mb-1">No questions found for {{ selectedMonthYear() }} under selected filter</h3>
         <p class="text-xs text-slate-500 mb-5 max-w-md mx-auto">
-          Click the button below to run the AI exam analyzer. It will extract high-probability news from this month's notes and generate exam-grade questions.
+          Click the button below to generate exam-grade questions with AI, or try selecting "All Verticals".
         </p>
         <button
           (click)="triggerAiGeneration()"
           [disabled]="isGenerating"
-          class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-sm transition-colors">
+          class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold shadow-sm transition-colors">
           {{ isGenerating ? 'Analyzing with AI...' : 'Generate Questions with AI' }}
         </button>
       </div>
@@ -169,7 +224,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
       <div *ngIf="!isLoading && questions().length > 0" class="space-y-6">
         <div class="text-xs text-slate-500 px-1 flex items-center justify-between">
           <span>Showing <b>{{ questions().length }}</b> expected questions for {{ selectedMonthYear() }}</span>
-          <span class="text-indigo-600 font-semibold">Click any option to verify your answer instantly</span>
+          <span class="text-fintech-navy font-bold">Click any option to verify your answer instantly</span>
         </div>
 
         <!-- Question Card -->
@@ -179,15 +234,29 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
           <!-- Card Header Badges -->
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
             <div class="flex flex-wrap items-center gap-2">
-              <span class="w-6 h-6 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs font-bold">
+              <span class="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">
                 Q{{ i + 1 }}
               </span>
 
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200/60">
+              <!-- Target Group Vertical Chip -->
+              <span *ngIf="q.examTargetGroup === 'RRB_Agriculture'" class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-900 border border-emerald-300">
+                🌾 RRB Special
+              </span>
+              <span *ngIf="q.examTargetGroup === 'CommercialBanks' || !q.examTargetGroup" class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-100 text-blue-900 border border-blue-200">
+                🏛️ Commercial Banks
+              </span>
+              <span *ngIf="q.examTargetGroup === 'Regulatory'" class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-100 text-purple-900 border border-purple-200">
+                📜 Regulatory
+              </span>
+              <span *ngIf="q.examTargetGroup === 'Insurance'" class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-100 text-amber-900 border border-amber-300">
+                🛡️ Insurance
+              </span>
+
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-700">
                 {{ langService.isHindi() ? q.categoryNameHi : q.categoryNameEn }}
               </span>
 
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600">
                 {{ q.questionType === 'StatementBased' ? 'Statement-Based' : 'Standard MCQ' }}
               </span>
 
@@ -201,7 +270,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
                 {{ q.difficultyLevel }}
               </span>
 
-              <span class="text-[11px] text-slate-500 font-medium">
+              <span class="text-[11px] text-slate-500 font-semibold">
                 🎯 {{ q.targetExam }}
               </span>
             </div>
@@ -225,13 +294,13 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
 
           <!-- Question Body -->
           <div class="mb-5">
-            <div *ngIf="!langService.isHindi()" class="text-sm sm:text-base font-semibold text-slate-900 leading-relaxed whitespace-pre-line">
+            <div *ngIf="!langService.isHindi()" class="text-sm sm:text-base font-bold text-slate-900 leading-relaxed whitespace-pre-line">
               {{ q.questionEn }}
             </div>
-            <div *ngIf="langService.isHindi()" class="text-sm sm:text-base font-semibold text-slate-900 leading-relaxed font-hindi whitespace-pre-line">
+            <div *ngIf="langService.isHindi()" class="text-sm sm:text-base font-bold text-slate-900 leading-relaxed font-hindi whitespace-pre-line">
               {{ q.questionHi }}
             </div>
-            <div *ngIf="langService.isDual() && q.questionHi" class="mt-2 text-xs sm:text-sm text-slate-600 font-hindi border-l-2 border-indigo-400 pl-3 py-1 bg-slate-50/80 rounded-r whitespace-pre-line">
+            <div *ngIf="langService.isDual() && q.questionHi" class="mt-2 text-xs sm:text-sm text-slate-600 font-hindi border-l-2 border-fintech-navy pl-3 py-1 bg-slate-50/80 rounded-r whitespace-pre-line">
               {{ q.questionHi }}
             </div>
           </div>
@@ -248,8 +317,8 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
               [class.bg-rose-50]="isOptionSelectedWrong(q, getOptionLetter(optIndex))"
               [class.border-rose-400]="isOptionSelectedWrong(q, getOptionLetter(optIndex))"
               [class.text-rose-950]="isOptionSelectedWrong(q, getOptionLetter(optIndex))"
-              [class.hover:bg-indigo-50]="!userAnswers[q.id]"
-              [class.hover:border-indigo-300]="!userAnswers[q.id]"
+              [class.hover:bg-slate-50]="!userAnswers[q.id]"
+              [class.hover:border-slate-300]="!userAnswers[q.id]"
               class="p-3 sm:p-3.5 rounded-xl border border-slate-200 transition-all flex items-start space-x-3 text-xs sm:text-sm font-medium">
               <span
                 class="w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs flex-shrink-0"
@@ -274,7 +343,7 @@ import { DeepAnalysisCardComponent } from './components/deep-analysis-card.compo
           <div class="flex items-center justify-between pt-3 border-t border-slate-100 no-print">
             <button
               (click)="toggleExpanded(q.id)"
-              class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1">
+              class="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center space-x-1">
               <span>{{ expandedQuestions[q.id] ? 'Hide Detailed Analysis & Explanation' : 'View Deep Analysis & Explanation' }}</span>
               <svg class="w-4 h-4 transform transition-transform" [class.rotate-180]="expandedQuestions[q.id]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -326,6 +395,7 @@ export class ExamZoneComponent implements OnInit {
   selectedCategoryId: number | null = null;
   selectedQuestionType: string = 'All';
   selectedDifficulty: string = 'All';
+  selectedTargetGroup: string = 'All';
 
   isLoading = true;
   isGenerating = false;
@@ -353,7 +423,6 @@ export class ExamZoneComponent implements OnInit {
       next: (months) => {
         this.availableMonths.set(months);
         if (months.length > 0) {
-          // Select first month with questions or latest
           const withQuestions = months.find(m => m.questionCount > 0);
           const target = withQuestions ? withQuestions.monthYear : months[0].monthYear;
           this.selectedMonthYear.set(target);
@@ -366,13 +435,19 @@ export class ExamZoneComponent implements OnInit {
     });
   }
 
+  selectTargetGroup(group: string): void {
+    this.selectedTargetGroup = group;
+    this.loadQuestions();
+  }
+
   loadQuestions(): void {
     this.isLoading = true;
     this.examService.getQuestions(
       this.selectedMonthYear(),
       this.selectedCategoryId ?? undefined,
       this.selectedDifficulty,
-      this.selectedQuestionType
+      this.selectedQuestionType,
+      this.selectedTargetGroup
     ).subscribe({
       next: (items) => {
         this.questions.set(items);
@@ -418,7 +493,6 @@ export class ExamZoneComponent implements OnInit {
       this.userCorrectCount.update(c => c + 1);
     }
 
-    // Auto expand explanation on answer
     this.expandedQuestions[q.id] = true;
   }
 

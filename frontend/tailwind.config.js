@@ -26,6 +26,17 @@ module.exports = {
           emerald: '#10b981',
           ruby: '#e11d48',
           slate: '#334155'
+        },
+        fintech: {
+          dark: '#0B132B',
+          navy: '#1C2541',
+          surface: '#1E293B',
+          accent: '#3A86FF',
+          gold: '#F59E0B',
+          amber: '#D97706',
+          emerald: '#10B981',
+          forest: '#059669',
+          softBg: '#F8FAFC'
         }
       },
       fontFamily: {
