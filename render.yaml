@@ -1,0 +1,36 @@
+databases:
+  - name: bankdca-postgres
+    databaseName: bankdcadb
+    user: bankdca_user
+    plan: free
+    region: oregon
+    ipAllowList: [] # Allow internal services only
+
+services:
+  - type: web
+    name: bankdca-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: DatabaseProvider
+        value: PostgreSql
+      - key: HangfireSettings__Storage
+        value: Memory
+      - key: HangfireSettings__CronExpression
+        value: "0 5 * * *"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bankdca-postgres
+          property: connectionString
+      - key: AiSettings__Provider
+        value: Gemini
+      - key: AiSettings__ApiKey
+        sync: false # Set via Render dashboard or leave blank for built-in curated banking engine
+      - key: AiSettings__Model
+        value: gemini-1.5-flash
+      - key: Cors__AllowedOrigins__0
+        value: "*"
