@@ -308,9 +308,9 @@ export class AdminDashboardComponent implements OnInit {
         this.loadItemsForDate();
         this.loadJobHistory();
       },
-      error: (err) => {
+      error: (err: any) => {
         this.isSyncing = false;
-        alert('Job trigger failed: ' + err.message);
+        alert('Job trigger failed: ' + (err?.message || err));
       }
     });
   }
@@ -331,7 +331,7 @@ export class AdminDashboardComponent implements OnInit {
         next: () => {
           this.loadItemsForDate();
         },
-        error: (err) => alert('Delete failed: ' + err.message)
+        error: (err: any) => alert('Delete failed: ' + (err?.message || err))
       });
     }
   }

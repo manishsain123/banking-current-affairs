@@ -400,9 +400,9 @@ export class ExamZoneComponent implements OnInit {
         this.loadMonths();
         this.loadQuestions();
       },
-      error: (err) => {
+      error: (err: any) => {
         this.isGenerating = false;
-        alert('Failed to generate questions: ' + err.message);
+        alert('Failed to generate questions: ' + (err?.message || err));
       }
     });
   }

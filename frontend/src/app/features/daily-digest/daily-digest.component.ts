@@ -255,7 +255,7 @@ export class DailyDigestComponent implements OnInit {
         this.applyFilters();
         this.isLoading = false;
       },
-      error: (err) => {
+      error: (err: any) => {
         this.isLoading = false;
         this.errorMessage = 'No current affairs digest found for today yet.';
       }
@@ -273,7 +273,7 @@ export class DailyDigestComponent implements OnInit {
         this.applyFilters();
         this.isLoading = false;
       },
-      error: (err) => {
+      error: (err: any) => {
         this.isLoading = false;
         this.errorMessage = `No notes found for ${dateStr}.`;
       }

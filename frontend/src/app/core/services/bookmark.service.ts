@@ -40,7 +40,7 @@ export class BookmarkService {
         const idSet = new Set(bookmarks.map(b => b.itemId));
         this.bookmarkedIds.set(idSet);
       },
-      error: (err) => console.warn('Could not pre-load bookmarks from backend', err)
+      error: (err: any) => console.warn('Could not pre-load bookmarks from backend', err)
     });
   }
 

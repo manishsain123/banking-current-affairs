@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CurrentAffairItem, CreateOrUpdateAffairPayload } from '../../../core/models/current-affair.model';
-import { Category } from '../../../core/models/category.model';
-import { AdminService } from '../../../core/services/admin.service';
+import { CurrentAffairItem, CreateOrUpdateAffairPayload } from '../../core/models/current-affair.model';
+import { Category } from '../../core/models/category.model';
+import { AdminService } from '../../core/services/admin.service';
 
 @Component({
   selector: 'app-affair-form-modal',
@@ -355,9 +355,9 @@ export class AffairFormModalComponent implements OnInit {
           this.isSaving = false;
           this.saved.emit();
         },
-        error: (err) => {
+        error: (err: any) => {
           this.isSaving = false;
-          alert('Error updating item: ' + err.message);
+          alert('Error updating item: ' + (err?.message || err));
         }
       });
     } else {
@@ -366,9 +366,9 @@ export class AffairFormModalComponent implements OnInit {
           this.isSaving = false;
           this.saved.emit();
         },
-        error: (err) => {
+        error: (err: any) => {
           this.isSaving = false;
-          alert('Error creating item: ' + err.message);
+          alert('Error creating item: ' + (err?.message || err));
         }
       });
     }
