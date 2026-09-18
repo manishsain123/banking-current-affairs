@@ -383,8 +383,8 @@ export class RrbAgricultureComponent implements OnInit {
           next: (digest) => {
             this.rrbItems = digest.items.filter(i =>
               i.examTargetGroup === 'RRB_Agriculture' ||
-              i.targetExams.includes('Rrb') ||
-              i.categoryNameEn.includes('Rural') ||
+              i.targetExams?.includes('Rrb') ||
+              i.categoryNameEn?.includes('Rural') ||
               i.categoryId === 10
             );
             this.isLoading = false;
