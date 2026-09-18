@@ -171,6 +171,8 @@ app.UseSwaggerUI(c =>
 });
 
 app.UseCors("CorsPolicy");
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseRouting();
 
 // 9. Hangfire Dashboard with Custom Dev Authorization Filter
@@ -189,6 +191,9 @@ RecurringJob.AddOrUpdate<DailyNotesHangfireJob>(
 );
 
 app.MapControllers();
+
+// SPA fallback: serve index.html for all non-API/Swagger Angular routes
+app.MapFallbackToFile("index.html");
 
 // Health check endpoint
 app.MapGet("/health", () => Results.Ok(new
