@@ -34,3 +34,12 @@ services:
         value: gemini-1.5-flash
       - key: Cors__AllowedOrigins__0
         value: "*"
+
+  - type: static
+    name: bankdca-web
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist/banking-current-affairs-frontend/browser
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
