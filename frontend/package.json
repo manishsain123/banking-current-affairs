@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node sync-dist.js",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
